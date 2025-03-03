@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from main import views as main_views
+from django.conf.urls.static import static
+from yummy_feb import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', main_views.index, name='home'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
