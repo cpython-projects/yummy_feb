@@ -9,4 +9,4 @@ def index(request):
         'categories': categories
     }
 
-    return render(request, 'index.html')
+    return render(request, 'index.html', context=context)
