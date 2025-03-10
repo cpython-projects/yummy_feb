@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+
     'main.apps.MainConfig',
 ]
 
@@ -49,6 +51,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 150,
+        'width': 800,
+        'removePlugins': 'stylesheetparser',
+    },
+}
+
 
 ROOT_URLCONF = 'yummy_feb.urls'
 
@@ -64,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.app_title',
+                'main.context_processors.footer',
             ],
         },
     },

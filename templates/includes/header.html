@@ -1,7 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-        <a href="base.html" class="logo d-flex align-items-center me-auto me-lg-0">
-            <h1>Yummy<span>.</span></h1>
+        <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+            <h1>{{ title|safe }}</h1>
         </a>
 
         {% include 'includes/nav.html' %}

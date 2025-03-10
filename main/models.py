@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -34,11 +35,33 @@ class Dish(models.Model):
     class Meta:
         db_table = 'main_dishes'
         ordering = ('sort', 'name')
-        verbose_name = 'Страва'
-        verbose_name_plural = 'Страви'
+        verbose_name = 'Dish'
+        verbose_name_plural = 'Dishes'
 
     def __str__(self):
         return self.name
 
 
+class Contacts(models.Model):
+    address = RichTextField()
+    reservations = RichTextField()
+    opening_hours = RichTextField()
+
+
+class Reservations(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=50)
+    date = models.DateField()
+    time = models.TimeField()
+    number_guests = models.PositiveSmallIntegerField(default=1)
+    message = models.TextField(max_length=255)
+
+    is_confirmed = models.BooleanField(default=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'main_reservations'
+        ordering = ('-date_created',)
 
