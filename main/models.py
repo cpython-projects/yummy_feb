@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.core.validators import RegexValidator
 
 
 class Category(models.Model):
@@ -49,9 +50,11 @@ class Contacts(models.Model):
 
 
 class Reservations(models.Model):
+    phone_regex = RegexValidator(regex=r'^\+?(38)?\d{10}$')
+
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    phone = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50, validators=[phone_regex])
     date = models.DateField()
     time = models.TimeField()
     number_guests = models.PositiveSmallIntegerField(default=1)

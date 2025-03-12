@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'ckeditor',
 
     'main.apps.MainConfig',
+    'manager.apps.ManagerConfig',
+    "account.apps.AccountConfig"
 ]
 
 MIDDLEWARE = [

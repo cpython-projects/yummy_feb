@@ -17,12 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main import views as main_views
+from manager import views as manager_views
 from django.conf.urls.static import static
 from yummy_feb import settings
+from account import views as account_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.index, name='home'),
+    path('manager/', manager_views.index, name='manager'),
+
+    path('login/', account_views.LoginView.as_view(), name='login'),
 ]
 
 if settings.DEBUG:
