@@ -1,0 +1,1 @@
+web: gunicorn yummy_feb.wsgi --log-file - --log-level debug
