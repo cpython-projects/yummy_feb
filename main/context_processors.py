@@ -12,6 +12,6 @@ def footer(request):
 
     return {
         'address': '',
-        'reservations': res.reservations,
+        'reservations': res.reservations or '',
         'opening_hours': ''
     }
