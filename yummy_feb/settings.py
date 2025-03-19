@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
-# DEBUG = True
+# DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', '*')]
 
@@ -101,11 +101,11 @@ WSGI_APPLICATION = 'yummy_feb.wsgi.application'
 DATABASES = {}
 
 if DEBUG:
-    DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-    }
-else:
+    # DATABASES['default'] = {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+# else:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('DB_HOST'),
